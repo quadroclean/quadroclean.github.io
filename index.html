@@ -191,11 +191,11 @@
   }
   </script>
 
-  <!-- Preload критичного шрифта -->
+  <!-- Шрифт — загрузка без блокировки рендера -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"/>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'"/>
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet"/></noscript>
 
   <style>
     /* ============================================================
@@ -210,7 +210,7 @@
       --warm-bg:   #FAF8F4;
       --warm-mid:  #EDE9E0;
       --text:      #1a1a2e;
-      --text-soft: #5a6070;
+      --text-soft: #4a5160;
       --white:     #FFFFFF;
       --shadow:    0 4px 24px rgba(11,37,69,0.10);
       --shadow-lg: 0 12px 48px rgba(11,37,69,0.16);
@@ -222,7 +222,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
-      font-family: 'Manrope', sans-serif;
+      font-family: 'Manrope', system-ui, sans-serif;
       background: var(--warm-bg);
       color: var(--text);
       line-height: 1.6;
@@ -755,6 +755,7 @@
   </div>
 </nav>
 
+<main id="main-content">
 <!-- ============================================================ HERO -->
 <section id="hero">
   <div class="hero-geo">
@@ -927,17 +928,17 @@
 
         <!-- Step 1: Service type -->
         <div class="calc-field">
-          <label><span>1.</span> <span data-ru="Выберите тип уборки:" data-kz="Жинау түрін таңдаңыз:">Выберите тип уборки:</span></label>
-          <div class="service-tabs">
-            <div class="service-tab active" data-type="wet" onclick="selectType(this)">
+          <label id="service-type-label"><span>1.</span> <span data-ru="Выберите тип уборки:" data-kz="Жинау түрін таңдаңыз:">Выберите тип уборки:</span></label>
+          <div class="service-tabs" role="group" aria-labelledby="service-type-label">
+            <div class="service-tab active" data-type="wet" onclick="selectType(this)" role="button" tabindex="0" aria-pressed="true">
               <div data-ru="Влажная уборка" data-kz="Жеңіл-желпі жинау">Влажная уборка</div>
               <div class="tab-price" data-ru="от 400 тг/м²" data-kz="400 тг/м² бастап">от 400 тг/м²</div>
             </div>
-            <div class="service-tab" data-type="general" onclick="selectType(this)">
+            <div class="service-tab" data-type="general" onclick="selectType(this)" role="button" tabindex="0" aria-pressed="false">
               <div data-ru="Генеральная уборка" data-kz="Тиянақты жинау">Генеральная уборка</div>
               <div class="tab-price" data-ru="от 590 тг/м²" data-kz="590 тг/м² бастап">от 590 тг/м²</div>
             </div>
-            <div class="service-tab" data-type="renovation" onclick="selectType(this)">
+            <div class="service-tab" data-type="renovation" onclick="selectType(this)" role="button" tabindex="0" aria-pressed="false">
               <div data-ru="После ремонта" data-kz="Құрылыстан кейінгі жинау">После ремонта</div>
               <div class="tab-price" data-ru="от 990 тг/м²" data-kz="990 тг/м² бастап">от 990 тг/м²</div>
             </div>
@@ -946,17 +947,17 @@
 
         <!-- Step 2: Area -->
         <div class="calc-field">
-          <label><span>2.</span> <span data-ru="Укажите площадь (м²):" data-kz="Ауданды көрсетіңіз (м²):">Укажите площадь (м²):</span></label>
+          <label for="area-input"><span>2.</span> <span data-ru="Укажите площадь (м²):" data-kz="Ауданды көрсетіңіз (м²):">Укажите площадь (м²):</span></label>
           <div class="area-row">
-            <input type="number" class="area-input" id="area-input" value="50" min="15" max="500" oninput="syncSlider(this)"/>
-            <input type="range" id="area-slider" min="15" max="300" value="50" oninput="syncInput(this)"/>
+            <input type="number" class="area-input" id="area-input" name="area" value="50" min="15" max="500" aria-label="Площадь в квадратных метрах" oninput="syncSlider(this)"/>
+            <input type="range" id="area-slider" name="area-slider" min="15" max="300" value="50" aria-label="Ползунок площади" oninput="syncInput(this)"/>
           </div>
         </div>
 
         <!-- Step 3: Kitchen -->
         <div class="calc-field" id="kitchen-field">
-          <label><span>3.</span> <span data-ru="Мойка внутри кухонного гарнитура:" data-kz="Ас үй жиhазын ішінен жуу:">Мойка внутри кухонного гарнитура:</span></label>
-          <select id="kitchen-select" onchange="calcTotal()">
+          <label for="kitchen-select"><span>3.</span> <span data-ru="Мойка внутри кухонного гарнитура:" data-kz="Ас үй жиhазын ішінен жуу:">Мойка внутри кухонного гарнитура:</span></label>
+          <select id="kitchen-select" name="kitchen" aria-label="Мойка кухонного гарнитура" onchange="calcTotal()">
             <option value="0" data-ru="Не требуется" data-kz="Қажет емес">Не требуется</option>
             <option value="8000" data-ru="Требуется (+8 000 тг)" data-kz="Қажет (+8 000 тг)">Требуется (+8 000 тг)</option>
           </select>
@@ -1124,17 +1125,17 @@
         <div class="contact-form" id="contact-form">
           <div class="form-row">
             <div class="form-field">
-              <label data-ru="Ваше имя *" data-kz="Сіздің атыңыз *">Ваше имя *</label>
-              <input type="text" id="f-name" placeholder="Алия" required/>
+              <label for="f-name" data-ru="Ваше имя *" data-kz="Сіздің атыңыз *">Ваше имя *</label>
+              <input type="text" id="f-name" name="name" placeholder="Алия" required aria-required="true"/>
             </div>
             <div class="form-field">
-              <label data-ru="Телефон *" data-kz="Телефон *">Телефон *</label>
-              <input type="tel" id="f-phone" placeholder="+7 700 000 00 00" required/>
+              <label for="f-phone" data-ru="Телефон *" data-kz="Телефон *">Телефон *</label>
+              <input type="tel" id="f-phone" name="phone" placeholder="+7 700 000 00 00" required aria-required="true"/>
             </div>
           </div>
           <div class="form-field">
-            <label data-ru="Тип уборки" data-kz="Жинау түрі">Тип уборки</label>
-            <select id="f-service">
+            <label for="f-service" data-ru="Тип уборки" data-kz="Жинау түрі">Тип уборки</label>
+            <select id="f-service" name="service" aria-label="Тип уборки">
               <option data-ru="Влажная уборка" data-kz="Жеңіл-желпі жинау">Влажная уборка</option>
               <option data-ru="Генеральная уборка" data-kz="Тиянақты жинау">Генеральная уборка</option>
               <option data-ru="Уборка после ремонта" data-kz="Құрылыстан кейінгі жинау">Уборка после ремонта</option>
@@ -1143,10 +1144,10 @@
             </select>
           </div>
           <div class="form-field">
-            <label data-ru="Адрес и площадь (необязательно)" data-kz="Мекенжай және аудан (міндетті емес)">Адрес и площадь (необязательно)</label>
-            <textarea id="f-msg" data-ru-placeholder="ул. Кабанбай батыра, 50 м²" data-kz-placeholder="Қабанбай батыр к-сі, 50 м²" placeholder="ул. Кабанбай батыра, 50 м²"></textarea>
+            <label for="f-msg" data-ru="Адрес и площадь (необязательно)" data-kz="Мекенжай және аудан (міндетті емес)">Адрес и площадь (необязательно)</label>
+            <textarea id="f-msg" name="message" data-ru-placeholder="ул. Кабанбай батыра, 50 м²" data-kz-placeholder="Қабанбай батыр к-сі, 50 м²" placeholder="ул. Кабанбай батыра, 50 м²" aria-label="Адрес и площадь"></textarea>
           </div>
-          <button class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;" onclick="submitForm()">
+          <button class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;" onclick="submitForm()" aria-label="Оставить заявку на уборку">
             <span data-ru="Оставить заявку" data-kz="Өтінім қалдыру">Оставить заявку</span>
           </button>
           <p style="font-size:0.75rem;text-align:center;color:rgba(255,255,255,0.35);margin-top:8px;" data-ru="Нажимая кнопку, вы соглашаетесь с обработкой персональных данных" data-kz="Батырманы басу арқылы деректерді өңдеуге келісесіз">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных</p>
@@ -1155,6 +1156,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ============================================================ FOOTER -->
 <footer>
