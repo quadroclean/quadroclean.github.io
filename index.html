@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- ============================================================
+       GOOGLE ANALYTICS 4 — РЕДАКТИРУЙ ЗДЕСЬ
+  ============================================================ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TSZYDJBSC0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TSZYDJBSC0');
+  </script>
+
+  <!-- ============================================================
        SEO — РЕДАКТИРУЙ ЗДЕСЬ
   ============================================================ -->
   <title>Quadro Clean — Профессиональная уборка в Астане | Клининг</title>
@@ -1301,6 +1312,14 @@
     const text = `Новая заявка с сайта!\nИмя: ${name}\nТелефон: ${phone}\nУслуга: ${service}\n${msg || ''}`.trim();
     window.open('https://wa.me/77086650570?text=' + encodeURIComponent(text), '_blank');
 
+    // GA4 — отслеживание конверсии "Заявка отправлена"
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        'event_category': 'form',
+        'event_label': service
+      });
+    }
+
     // Show success
     document.getElementById('contact-form').style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
@@ -1314,6 +1333,22 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  /* ============================================================
+     GA4 — отслеживание кликов по WhatsApp кнопкам
+  ============================================================ */
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'whatsapp_click', {
+            'event_category': 'contact',
+            'event_label': 'whatsapp_button'
+          });
+        }
+      });
+    });
+  });
 
   /* ============================================================
      INIT
