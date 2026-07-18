@@ -327,7 +327,21 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
 </a>
 <script>
 window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);});
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn){btn.addEventListener('click',function(){if(typeof gtag==='function'){gtag('event','whatsapp_click',{'event_category':'contact','event_label':'whatsapp_button'});}});});});
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'whatsapp_click', {
+          'event_category': 'contact',
+          'event_label': 'whatsapp_button'
+        });
+      }
+      if (typeof fbq === 'function') {
+        fbq('track', 'Contact');
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>
