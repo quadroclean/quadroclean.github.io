@@ -125,8 +125,7 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
             "@type": "UnitPriceSpecification",
             "price": "450",
             "priceCurrency": "KZT",
-            "unitText": "м²",
-            "minPrice": "25000"
+            "unitText": "м²"
           }
         },
         {
@@ -139,8 +138,7 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
             "@type": "UnitPriceSpecification",
             "price": "800",
             "priceCurrency": "KZT",
-            "unitText": "м²",
-            "minPrice": "40000"
+            "unitText": "м²"
           }
         },
         {
@@ -153,8 +151,7 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
             "@type": "UnitPriceSpecification",
             "price": "1000",
             "priceCurrency": "KZT",
-            "unitText": "м²",
-            "minPrice": "60000"
+            "unitText": "м²"
           }
         },
         {
@@ -193,7 +190,7 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
         "name": "Сколько стоит уборка квартиры в Астане?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Влажная уборка — от 450 тг/м² (минимальный выезд 25 000 тг), генеральная уборка — от 800 тг/м² (минимальный выезд 40 000 тг), уборка после ремонта — от 1 000 тг/м² (минимальный выезд 60 000 тг). Химчистка дивана — от 4 000 тг."
+          "text": "Влажная уборка — от 450 тг/м², генеральная уборка — от 800 тг/м², уборка после ремонта — от 1 000 тг/м². Химчистка дивана — от 4 000 тг. Точную стоимость с учётом площади и услуг можно узнать в онлайн-калькуляторе на сайте."
         }
       },
       {
@@ -595,7 +592,9 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
       gap: 16px;
     }
     .calc-result-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+    .calc-price-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
     .calc-result-price { font-size: 2.2rem; font-weight: 800; color: var(--gold); line-height: 1; }
+    .price-old { font-size: 1.1rem; font-weight: 600; color: rgba(255,255,255,0.4); text-decoration: line-through; line-height: 1; }
     .calc-result-min { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
 
     /* ============================================================ WHY US */
@@ -890,7 +889,6 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
           <li data-ru="Влажная уборка открытых поверхностей" data-kz="Қолжетімді жерлерді ылғалды тазалау">Влажная уборка открытых поверхностей</li>
           <li data-ru="Удаление пыли с мебели и техники" data-kz="Жиhаз бен техникадан шаңды сүрту">Удаление пыли с мебели и техники</li>
         </ul>
-        <div class="service-minsum" data-ru="Минимальный выезд — 25 000 тг" data-kz="Минималды шығу — 25 000 тг бастап">Минимальный выезд — 25 000 тг</div>
         <a href="uborka-kvartir-astana.html" class="btn btn-navy" style="margin-top:20px;width:100%;justify-content:center;">Подробнее об услуге</a>
       </article>
 
@@ -905,7 +903,6 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
           <li data-ru="Очистка сантехники" data-kz="Барлық сантехниканы лау">Очистка сантехники</li>
           <li data-ru="Мытьё дверных проёмов и радиаторов" data-kz="Есік жақтаулары мен радиаторларды жуу">Мытьё дверных проёмов и радиаторов</li>
         </ul>
-        <div class="service-minsum" data-ru="Минимальный выезд — 40 000 тг" data-kz="Минималды шығу — 40 000 тг бастап">Минимальный выезд — 40 000 тг</div>
         <a href="generalnaya-uborka-astana.html" class="btn btn-primary" style="margin-top:20px;width:100%;justify-content:center;">Подробнее об услуге</a>
       </article>
 
@@ -920,7 +917,6 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
           <li data-ru="Очистка от следов затирки, цемента и краски" data-kz="Жік толтырғыш іздерін тазалау">Очистка от затирки, цемента и краски</li>
           <li data-ru="Мытьё шкафов внутри и снаружи" data-kz="Шкафтардың іші-сыртын жуу">Мытьё шкафов внутри и снаружи</li>
         </ul>
-        <div class="service-minsum" data-ru="Минимальный выезд — 60 000 тг" data-kz="Минималды шығу — 60 000 тг бастап">Минимальный выезд — 60 000 тг</div>
         <a href="uborka-posle-remonta-astana.html" class="btn btn-navy" style="margin-top:20px;width:100%;justify-content:center;">Подробнее об услуге</a>
       </article>
     </div>
@@ -1033,10 +1029,13 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
         <div class="calc-result">
           <div>
             <div class="calc-result-label" data-ru="Итоговая стоимость:" data-kz="Жалпы құны:">Итоговая стоимость:</div>
-            <div class="calc-result-price" id="total-price">20 000 тг</div>
+            <div class="calc-price-row">
+              <span class="price-old" id="price-old">20 000 тг</span>
+              <span class="calc-result-price" id="total-price">20 000 тг</span>
+            </div>
             <div class="calc-result-min" id="min-note" data-ru="* Финальная цена уточняется специалистом" data-kz="* Нақты бағасын маман анықтайды">* Финальная цена уточняется специалистом</div>
           </div>
-          <a href="https://wa.me/77086650570?text=Здравствуйте%20👋!%20Хочу%20заказать%20уборку." target="_blank" class="btn btn-wa">
+          <a href="https://wa.me/77086650570?text=Здравствуйте%20👋!%20Хочу%20заказать%20уборку." target="_blank" class="btn btn-wa" id="calc-order-btn">
             <span data-ru="Заказать сейчас" data-kz="Тапсырыс беру">Заказать сейчас</span>
           </a>
         </div>
@@ -1303,24 +1302,75 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
     calcTotal();
   }
 
+  // Скидка за онлайн-расчёт — своя на каждый тип уборки, тг/м²
+  const ONLINE_DISCOUNTS = {
+    wet: 50,        // 50 / 450  = 11.1%
+    general: 75,    // 75 / 800  = 9.4%
+    renovation: 100 // 100 / 1000 = 10%
+  };
+
+  const TYPE_LABELS_RU = {
+    wet: 'Влажная уборка',
+    general: 'Генеральная уборка',
+    renovation: 'Уборка после ремонта'
+  };
+
+  function buildOrderMessage(area, discountedTotal, originalTotal) {
+    const lines = [
+      'Здравствуйте! 🧮 Хочу заказать уборку — рассчитал(а) на сайте.',
+      `Тип: ${TYPE_LABELS_RU[selectedType] || ''}`,
+      `Площадь: ${area} м²`
+    ];
+
+    const kitchenSelect = document.getElementById('kitchen-select');
+    if (kitchenSelect.value !== '0') {
+      lines.push(`Кухня: ${kitchenSelect.options[kitchenSelect.selectedIndex].text}`);
+    }
+
+    const extras = [];
+    document.querySelectorAll('.extra-item input[type=checkbox]:checked').forEach(cb => {
+      const item = cb.closest('.extra-item');
+      const label = item ? item.querySelector('.extra-label') : null;
+      if (label) extras.push(label.textContent);
+    });
+    if (extras.length) {
+      lines.push(`Доп. услуги: ${extras.join(', ')}`);
+    }
+
+    lines.push(`Итоговая стоимость со скидкой за онлайн-расчёт: ${discountedTotal.toLocaleString('ru-RU')} тг`);
+    if (discountedTotal < originalTotal) {
+      lines.push(`(обычная цена без скидки: ${originalTotal.toLocaleString('ru-RU')} тг)`);
+    }
+
+    return lines.join('\n');
+  }
+
   function calcTotal() {
     const area = parseInt(document.getElementById('area-input').value) || 50;
     const priceObj = PRICES[selectedType];
-    let total = area * priceObj.base;
+    const discountPerSqm = ONLINE_DISCOUNTS[selectedType] || 0;
 
-    // Kitchen
-    const kitchen = parseInt(document.getElementById('kitchen-select').value) || 0;
-    total += kitchen;
-
-    // Extras
+    // Допуслуги (кухня + чекбоксы) — фиксированные суммы, скидка на них не действует
+    let addons = parseInt(document.getElementById('kitchen-select').value) || 0;
     document.querySelectorAll('.extra-item input[type=checkbox]').forEach(cb => {
-      if (cb.checked) total += parseInt(cb.value) || 0;
+      if (cb.checked) addons += parseInt(cb.value) || 0;
     });
 
-    // Apply minimum
-    const finalTotal = Math.max(total, priceObj.min);
-    const formatted = finalTotal.toLocaleString('ru-RU');
-    document.getElementById('total-price').textContent = formatted + ' тг';
+    // Базовая цена за м² — обычная и со скидкой за онлайн-расчёт.
+    // Минимальный чек (priceObj.min) здесь намеренно НЕ применяется —
+    // менеджер озвучивает его сам при обращении в WhatsApp.
+    const originalTotal   = area * priceObj.base + addons;
+    const discountedTotal = area * (priceObj.base - discountPerSqm) + addons;
+
+    document.getElementById('price-old').textContent  = originalTotal.toLocaleString('ru-RU') + ' тг';
+    document.getElementById('total-price').textContent = discountedTotal.toLocaleString('ru-RU') + ' тг';
+
+    // Обновляем WhatsApp-ссылку кнопки заказа реальными данными расчёта
+    const orderBtn = document.getElementById('calc-order-btn');
+    if (orderBtn) {
+      const message = buildOrderMessage(area, discountedTotal, originalTotal);
+      orderBtn.href = 'https://wa.me/77086650570?text=' + encodeURIComponent(message);
+    }
   }
 
   /* ============================================================
