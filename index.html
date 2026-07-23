@@ -414,6 +414,18 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
     .hero-badge span { font-size: 0.78rem; font-weight: 600; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
     .hero-badge i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
+    .hero-offer {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--navy);
+      padding: 11px 22px; border-radius: 50px;
+      font-weight: 700; font-size: 0.92rem;
+      margin-bottom: 24px; cursor: pointer; border: none;
+      box-shadow: 0 4px 20px rgba(201,169,97,0.35);
+      transition: all 0.25s ease;
+    }
+    .hero-offer:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,169,97,0.45); }
+    .hero-offer-icon { font-size: 1.1rem; line-height: 1; }
+
     #hero h1 { color: var(--white); margin-bottom: 20px; }
     #hero h1 em { color: var(--gold); font-style: normal; }
     #hero p { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 36px; max-width: 440px; }
@@ -513,6 +525,20 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
     .service-card-sm .icon { font-size: 1.6rem; flex-shrink: 0; }
     .service-card-sm h3 { color: var(--white); font-size: 1rem; margin-bottom: 6px; }
     .service-card-sm p { font-size: 0.83rem; color: rgba(255,255,255,0.55); margin: 0; }
+
+    /* ============================================================ BEFORE / AFTER */
+    #before-after { background: var(--white); }
+    .ba-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px; margin-top: 48px;
+    }
+    .ba-card { display: flex; flex-direction: column; gap: 12px; }
+    .ba-photo-wrap {
+      position: relative; aspect-ratio: 4 / 5; background: var(--warm-mid);
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    }
+    .ba-photo-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ba-caption { font-size: 0.88rem; font-weight: 700; color: var(--navy); text-align: center; }
 
     /* ============================================================ CALCULATOR */
     #calculator { background: var(--cream); }
@@ -811,6 +837,11 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
           <span data-ru="Астана · Профессиональная уборка" data-kz="Астана · Кәсіби жинау">Астана · Профессиональная уборка</span>
         </div>
 
+        <a href="#calculator" class="hero-offer" id="hero-offer-badge">
+          <span class="hero-offer-icon">🧮</span>
+          <span data-ru="Посчитайте онлайн — скидка до 11%" data-kz="Онлайн есептеп, 11%-ға дейін жеңілдік алыңыз">Посчитайте онлайн — скидка до 11%</span>
+        </a>
+
         <h1 data-ru="Профессиональная уборка в Астане с <em>гарантией качества</em>" data-kz="Астанада <em>сапа кепілдігімен</em> кәсіби жинау">
           Профессиональная уборка в Астане с <em>гарантией качества</em>
         </h1>
@@ -937,6 +968,48 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
           <h3 data-ru="Уборка коммерческих помещений" data-kz="Коммерциялық үй-жайларды жинау">Уборка коммерческих помещений</h3>
           <p data-ru="Офисы, магазины, рестораны. Разовая и регулярная уборка по договору." data-kz="Кеңселер, дүкендер, мейрамханалар. Бір реттік және тұрақты жинау.">Офисы, магазины, рестораны. Разовая и регулярная уборка.</p>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BEFORE / AFTER -->
+<section id="before-after">
+  <div class="container">
+    <p class="section-label" data-ru="Реальные результаты" data-kz="Нақты нәтижелер">Реальные результаты</p>
+    <h2 data-ru="До и после" data-kz="Дейін және кейін">До и после</h2>
+
+    <div class="ba-grid">
+      <div class="ba-card fade-up">
+        <div class="ba-photo-wrap">
+          <img src="photos/ba-fridge.webp" width="760" height="950" loading="lazy" decoding="async"
+               alt="Мойка холодильника внутри — уборка в Астане, до и после"/>
+        </div>
+        <p class="ba-caption" data-ru="Мойка холодильника" data-kz="Тоңазытқышты жуу">Мойка холодильника</p>
+      </div>
+
+      <div class="ba-card fade-up">
+        <div class="ba-photo-wrap">
+          <img src="photos/ba-bathtub.webp" width="760" height="950" loading="lazy" decoding="async"
+               alt="Влажная уборка ванной комнаты в Астане, до и после"/>
+        </div>
+        <p class="ba-caption" data-ru="Влажная уборка ванной" data-kz="Жуынатын бөлмені жинау">Влажная уборка ванной</p>
+      </div>
+
+      <div class="ba-card fade-up">
+        <div class="ba-photo-wrap">
+          <img src="photos/ba-radiator.webp" width="760" height="950" loading="lazy" decoding="async"
+               alt="Мытьё радиатора отопления — генеральная уборка в Астане, до и после"/>
+        </div>
+        <p class="ba-caption" data-ru="Генеральная уборка" data-kz="Тиянақты жинау">Генеральная уборка</p>
+      </div>
+
+      <div class="ba-card fade-up">
+        <div class="ba-photo-wrap">
+          <img src="photos/ba-sofa.webp" width="760" height="950" loading="lazy" decoding="async"
+               alt="Химчистка мягкой мебели, диван — Астана, до и после"/>
+        </div>
+        <p class="ba-caption" data-ru="Химчистка мягкой мебели" data-kz="Жұмсақ жиhазды химтазалау">Химчистка мягкой мебели</p>
       </div>
     </div>
   </div>
@@ -1442,6 +1515,18 @@ src="https://www.facebook.com/tr?id=1243285885529718&ev=PageView&noscript=1"
         }
       });
     });
+
+    const heroOfferBadge = document.getElementById('hero-offer-badge');
+    if (heroOfferBadge) {
+      heroOfferBadge.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'hero_offer_click', {
+            'event_category': 'engagement',
+            'event_label': 'hero_calculator_offer'
+          });
+        }
+      });
+    }
   });
 
   /* ============================================================
